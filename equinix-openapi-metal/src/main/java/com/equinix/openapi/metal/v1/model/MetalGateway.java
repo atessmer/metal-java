@@ -410,6 +410,7 @@ public class MetalGateway {
     openapiFields.add("state");
     openapiFields.add("updated_at");
     openapiFields.add("virtual_network");
+    openapiFields.add("vrf");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -459,6 +460,10 @@ public class MetalGateway {
       // validate the optional field `virtual_network`
       if (jsonObj.get("virtual_network") != null && !jsonObj.get("virtual_network").isJsonNull()) {
         VirtualNetwork.validateJsonObject(jsonObj.getAsJsonObject("virtual_network"));
+      }
+      // validate that if field `vrf` exists, it's null
+      if (jsonObj.get("vrf") != null && !jsonObj.get("vrf").isJsonNull()) {
+        throw new IllegalArgumentException(String.format("Expected the field `vrf` to be a null type in the JSON string but got `%s`", jsonObj.get("vrf").toString()));
       }
   }
 
